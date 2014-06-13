@@ -27,26 +27,32 @@
     navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(66.0f/255.0f) green:(98.0f/255.0f) blue:(163.0f/255.0f) alpha:1.0f];
     navigationController.navigationBar.translucent = NO;
+    navigationController.tabBarItem.image = [UIImage imageNamed: @"feed_tab_img.png" ];
 
     // Dummy tabs
     UIViewController *view2 = [[UIViewController alloc] init];
     view2.title = @"Requests";
+    view2.tabBarItem.image = [UIImage imageNamed: @"feed_tab_img.png" ];
     UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:view2];
 
     UIViewController *view3 = [[UIViewController alloc] init];
     view3.title = @"Messages";
+    view3.tabBarItem.image = [UIImage imageNamed: @"messages_tab_img.png" ];
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:view3];
     
     UIViewController *view4 = [[UIViewController alloc] init];
     view4.title = @"Notifications";
+    view4.tabBarItem.image = [UIImage imageNamed: @"feed_tab_img.png" ];
     UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:view4];
     
     UIViewController *view5 = [[UIViewController alloc] init];
     view5.title = @"More";
+    view5.tabBarItem.image = [UIImage imageNamed: @"more_tab_img.png" ];
     UINavigationController *nav5 = [[UINavigationController alloc] initWithRootViewController:view5];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[navigationController, nav2, nav3, nav4, nav5];
+    tabBarController.tabBar.tintColor = [UIColor colorWithRed:88.0f/255.0 green:144.0f/255.0 blue:255.0f/255.0 alpha:1.0];
     
     self.window.rootViewController = tabBarController;
     

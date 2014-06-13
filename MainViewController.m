@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ufi;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *bodyLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *storyImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *commentBarImageView;
 
 @end
 
@@ -43,10 +44,13 @@
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor whiteColor];
     label.text = @"Post";
-    label.font = [UIFont boldSystemFontOfSize:16];
+    label.font = [UIFont boldSystemFontOfSize:17];
     label.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = label;
     
+    // NavigationBar - Action
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(nilSymbol)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     
     // cardView - rounded corners
     CALayer *layer = self.cardView.layer;
@@ -68,9 +72,8 @@
     storyImageViewLayer.shadowOpacity = 0.20f;
     storyImageViewLayer.shadowPath = [[UIBezierPath bezierPathWithRect:storyImageViewLayer.bounds] CGPath];
     
-    
-    // ufi
-    UIImage *patternImage = [UIImage imageNamed:@"bar_bg_rpt.png"];
+    // CommentBar
+//    self.bottomLayoutGuide
     
     // text
     NSString *text = @"From collarless shirts to high-waisted pants, #Her's costume designer, Casey Storm, explains how he created his fashion looks for the future: http://bit.ly/1jV9zM8";

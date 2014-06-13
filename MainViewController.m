@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *bodyLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *storyImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *commentBarImageView;
+@property (weak, nonatomic) IBOutlet UILabel *likeButtonLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *likeButtonSelected;
+- (IBAction)likeButtonTap:(id)sender;
 
 @end
 
@@ -72,8 +75,13 @@
     storyImageViewLayer.shadowOpacity = 0.20f;
     storyImageViewLayer.shadowPath = [[UIBezierPath bezierPathWithRect:storyImageViewLayer.bounds] CGPath];
     
+    // Like button
+    self.likeButtonSelected.layer.opacity = 0;
+    
     // CommentBar
-//    self.bottomLayoutGuide
+    CGRect frame = self.commentBarImageView.frame;
+    frame.origin.y = self.tabBarController.tabBar.frame.origin.y;
+    self.commentBarImageView.frame = frame;
     
     // text
     NSString *text = @"From collarless shirts to high-waisted pants, #Her's costume designer, Casey Storm, explains how he created his fashion looks for the future: http://bit.ly/1jV9zM8";
@@ -111,4 +119,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)likeButtonTap:(id)sender {
+    if (self.likeButtonSelected.layer.opacity == 0) {
+        self.likeButtonSelected.layer.opacity = 1;
+        self.likeButtonLabel.textColor = [UIColor colorWithRed:88.0f/255.0 green:144.0f/255.0 blue:255.0f/255.0 alpha:1.0];
+    } else {
+        self.likeButtonSelected.layer.opacity = 0;
+        self.likeButtonLabel.textColor = [UIColor colorWithRed:100.0f/255.0 green:100.0f/255.0 blue:100.0f/255.0 alpha:1.0];
+    }
+}
 @end

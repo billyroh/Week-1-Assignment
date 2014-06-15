@@ -18,7 +18,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *commentBarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *likeButtonLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *likeButtonSelected;
+@property (weak, nonatomic) IBOutlet UITextField *commentBarTextField;
+@property (weak, nonatomic) IBOutlet UIView *commentBarWrapperView;
 - (IBAction)likeButtonTap:(id)sender;
+- (IBAction)commentBarTextFieldEditing:(id)sender;
+- (IBAction)commentBarEditingDidBegin:(id)sender;
+- (IBAction)viewTap:(id)sender;
+
+@property BOOL keyboardIsVisible;
 
 @end
 
@@ -73,7 +80,6 @@
     // cardView - rounded corners
     CALayer *layer = self.cardView.layer;
     layer.cornerRadius = 2;
-//    layer.masksToBounds = YES;
 
     // cardView - shadows
     layer.shadowOffset = CGSizeMake(0, 0);
@@ -141,6 +147,43 @@
     } else {
         self.likeButtonSelected.layer.opacity = 0;
         self.likeButtonLabel.textColor = [UIColor colorWithRed:100.0f/255.0 green:100.0f/255.0 blue:100.0f/255.0 alpha:1.0];
+    }
+}
+
+- (IBAction)commentBarTextFieldEditing:(id)sender {
+    UIImage *image = [UIImage imageNamed:@"commentbar"];
+    CGRect frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    frame.origin.y = self.commentBarWrapperView.frame.origin.y + 80;
+    self.commentBarWrapperView.frame = frame;
+    NSLog(@"hello");
+}
+
+- (IBAction)commentBarEditingDidBegin:(id)sender {
+    if (self.keyboardIsVisible == NO) {
+        [UIView animateWithDuration:0.285 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            CGRect frame = CGRectMake(0, 0, 320, 45);
+            frame.origin.y = self.commentBarWrapperView.frame.origin.y -168;
+            self.commentBarWrapperView.frame = frame;
+        }
+                         completion:^(BOOL finished) {
+                             
+                         }];
+        self.keyboardIsVisible = YES;
+    }
+}
+
+- (IBAction)viewTap:(id)sender {
+    if (self.keyboardIsVisible == YES) {
+        [self.view endEditing:YES];
+        [UIView animateWithDuration:0.285 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            CGRect frame = CGRectMake(0, 0, 320, 45);
+            frame.origin.y = self.commentBarWrapperView.frame.origin.y + 168;
+            self.commentBarWrapperView.frame = frame;
+        }
+                         completion:^(BOOL finished) {
+                             
+                         }];
+        self.keyboardIsVisible = NO;
     }
 }
 @end

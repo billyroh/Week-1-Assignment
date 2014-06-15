@@ -8,7 +8,8 @@
             <connections>
                 <outlet property="bodyLabel" destination="vzN-3P-erb" id="j1q-TU-NdB"/>
                 <outlet property="cardView" destination="ZFV-zy-Ex1" id="iZD-8M-bCk"/>
-                <outlet property="commentBarImageView" destination="fyk-Mr-ywC" id="0dc-1F-I6j"/>
+                <outlet property="commentBarTextField" destination="MsM-qd-dcl" id="xZQ-Mr-Jqd"/>
+                <outlet property="commentBarWrapperView" destination="MsM-qd-dcl" id="DOg-dl-Qsf"/>
                 <outlet property="likeButtonLabel" destination="TIt-4i-cLe" id="US3-zQ-JU5"/>
                 <outlet property="likeButtonSelected" destination="bXC-wp-Uuz" id="7x3-z0-H8Q"/>
                 <outlet property="storyImageView" destination="7cx-Bc-1o6" id="y3d-xu-OaO"/>
@@ -88,6 +89,10 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="61L-Af-6Zc" appends="YES" id="iKq-3e-L0O"/>
+                    </connections>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="her_image" translatesAutoresizingMaskIntoConstraints="NO" id="7cx-Bc-1o6">
                     <rect key="frame" x="5" y="145" width="310" height="174"/>
@@ -114,9 +119,9 @@
                             </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Like" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIt-4i-cLe">
-                            <rect key="frame" x="44" y="9" width="32" height="21"/>
+                            <rect key="frame" x="48" y="8" width="32" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                             <color key="textColor" white="0.39407504562043794" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -129,9 +134,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wn-3x-uNb">
-                            <rect key="frame" x="129" y="5" width="59" height="30"/>
+                            <rect key="frame" x="132" y="4" width="59" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                             <state key="normal" title="Comment">
                                 <color key="titleColor" white="0.45951990929999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -144,7 +149,7 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnY-qh-708">
                             <rect key="frame" x="234" y="5" width="59" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                             <state key="normal" title="Share">
                                 <color key="titleColor" white="0.45951990929999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,18 +162,36 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="commentbar" translatesAutoresizingMaskIntoConstraints="NO" id="fyk-Mr-ywC">
-                    <rect key="frame" x="0.0" y="408" width="320" height="50"/>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fn7-IV-x5O">
+                    <rect key="frame" x="0.0" y="270" width="320" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" background="commentbar" translatesAutoresizingMaskIntoConstraints="NO" id="MsM-qd-dcl">
+                            <rect key="frame" x="0.0" y="0.0" width="325" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="commentBarEditingDidBegin:" destination="-1" eventType="editingDidBegin" id="GYA-n3-bnd"/>
+                                <action selector="commentBarTextFieldEditing:" destination="-1" eventType="touchUpInside" id="aVc-eO-FeK"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.82352941176470584" green="0.83529411764705885" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="fyk-Mr-ywC" secondAttribute="bottom" constant="48" id="qMI-17-s8Y"/>
+                <constraint firstAttribute="bottom" secondItem="fn7-IV-x5O" secondAttribute="bottom" constant="48" id="9re-S8-rDp"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
+        <tapGestureRecognizer id="61L-Af-6Zc">
+            <connections>
+                <action selector="viewTap:" destination="-1" id="Jmr-xQ-WhG"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="bar_bg_rpt" width="1" height="41"/>

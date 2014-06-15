@@ -55,6 +55,21 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(nilSymbol)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     
+    // NavigationBar - Back
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(nilSymbol)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    
+    UIImage* image3 = [UIImage imageNamed:@"chevronleft.png"];
+    CGRect frameimg = CGRectMake(0, 0, image3.size.width, image3.size.height);
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setBackgroundImage:image3 forState:UIControlStateNormal];
+    [someButton addTarget:self action:@selector(nilSymbol)
+         forControlEvents:UIControlEventTouchUpInside];
+    [someButton setShowsTouchWhenHighlighted:YES];
+    
+    UIBarButtonItem *mailbutton =[[UIBarButtonItem alloc] initWithCustomView:someButton];
+    self.navigationItem.leftBarButtonItem = mailbutton;
+    
     // cardView - rounded corners
     CALayer *layer = self.cardView.layer;
     layer.cornerRadius = 2;

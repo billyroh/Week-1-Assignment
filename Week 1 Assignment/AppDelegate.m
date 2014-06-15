@@ -32,7 +32,7 @@
     // Dummy tabs
     UIViewController *view2 = [[UIViewController alloc] init];
     view2.title = @"Requests";
-    view2.tabBarItem.image = [UIImage imageNamed: @"feed_tab_img.png" ];
+    view2.tabBarItem.image = [UIImage imageNamed: @"friends.png" ];
     UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:view2];
 
     UIViewController *view3 = [[UIViewController alloc] init];
@@ -42,7 +42,7 @@
     
     UIViewController *view4 = [[UIViewController alloc] init];
     view4.title = @"Notifications";
-    view4.tabBarItem.image = [UIImage imageNamed: @"feed_tab_img.png" ];
+    view4.tabBarItem.image = [UIImage imageNamed: @"notifications.png" ];
     UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:view4];
     
     UIViewController *view5 = [[UIViewController alloc] init];

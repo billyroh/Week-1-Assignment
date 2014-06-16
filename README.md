@@ -31,3 +31,7 @@ Around 6 hours
 * Only did UITabBar and UINavigationBar; didn't do the story card or its layout
 
 ![Tabs](http://cl.ly/image/082W130h103J/tabs.gif)
+
+[x] Launch image
+
+![Launch Image](http://cl.ly/image/281J38170l2J/launch.gif)
